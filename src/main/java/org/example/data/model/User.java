@@ -1,14 +1,15 @@
 package org.example.data.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Data
-@Document
+@Entity
 public class User {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private String age;
     private String phoneNumber;

@@ -12,4 +12,5 @@ public class SendEmailRequest {
     private String title;
     private String body;
     private String reciepentEmail;
+    private String modeOfMail;
 }

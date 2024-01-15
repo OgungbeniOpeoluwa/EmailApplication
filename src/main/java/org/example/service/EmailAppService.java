@@ -4,11 +4,13 @@ import org.example.data.model.EmailApp;
 import org.example.dto.request.SendEmailRequest;
 
 public interface EmailAppService {
-    String createAccount(String domainName, String id);
+    void logOut(String domainName);
+
+    String createAccount(String domainName, Long id);
 
     EmailApp findUserDomainName(String domainName);
 
-    String login(String domainName);
+    Long login(String domainName);
 
     void sendEmail(SendEmailRequest sendEmailRequest);
 }

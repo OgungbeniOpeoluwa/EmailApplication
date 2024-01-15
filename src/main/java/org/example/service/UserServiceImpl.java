@@ -1,8 +1,8 @@
 package org.example.service;
 
-import org.example.data.model.EmailApp;
 import org.example.data.model.User;
 import org.example.data.repository.UserRepository;
+import org.example.dto.request.LogOutRequest;
 import org.example.dto.request.LoginRequest;
 import org.example.dto.request.RegisterRequest;
 import org.example.dto.request.SendEmailRequest;
@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
     public String register(RegisterRequest request) {
         User user = new User();
         if(!Verification.verifyPhoneNumber(request.getPhoneNumber()))throw new InvalidDetailsFormat("Invalid phone Number");
+        if(!Verification.verifyPassword(request.getPassword()))throw new InvalidDetailsFormat("Weak password");
         user.setName(request.getName());
         user.setAge(request.getAge());
         user.setPhoneNumber(request.getPhoneNumber());
@@ -37,8 +38,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void login(LoginRequest loginRequest) {
-        String userId = emailAppService.login(loginRequest.getDomainName());
-       verifyPassword(userId, loginRequest.getPassword());
+        Long userId = emailAppService.login(loginRequest.getDomainName());
+        verifyPassword(userId, loginRequest);
 
     }
 
@@ -47,9 +48,17 @@ public class UserServiceImpl implements UserService {
         emailAppService.sendEmail(sendEmailRequest);
     }
 
-    private void verifyPassword(String id,String password){
+    @Override
+    public void logOut(LogOutRequest logOutRequest) {
+       emailAppService.logOut(logOutRequest.getDomainName()); 
+    }
+
+    private void verifyPassword(Long id, LoginRequest loginRequest){
         Optional<User> user = userRepository.findById(id);
         if(user.isEmpty()) throw new UserExistException("User doesn't exist");
-        if(!user.get().getPassword().equals(password)) throw new InvalidLoginDetails("Invalid login details");
+        if(!user.get().getPassword().equals(loginRequest.getPassword())) {
+            emailAppService.logOut(loginRequest.getDomainName());
+            throw new InvalidLoginDetails("Invalid login details");
+        }
     }
 }

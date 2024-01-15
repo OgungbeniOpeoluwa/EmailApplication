@@ -1,8 +1,9 @@
 package org.example.data.repository;
 
 import org.example.data.model.EmailApp;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmailAppRepository extends MongoRepository<EmailApp, String> {
+
+public interface EmailAppRepository extends JpaRepository<EmailApp,Long> {
     EmailApp findByDomainName(String domainName);
 }

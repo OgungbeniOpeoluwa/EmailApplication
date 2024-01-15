@@ -1,18 +1,18 @@
 package org.example.data.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
 import java.util.List;
 @Data
-@Document
+@Entity
 public class EmailApp {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String domainName;
-    private List <Mail> mail = new ArrayList<>();
+    @OneToMany
+    private List <Mail> mail;
     private boolean isLogIn = false;
-    private String userId;
+    private Long userId;
 }

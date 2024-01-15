@@ -1,18 +1,20 @@
 package org.example.data.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
 import lombok.Data;
 import org.example.util.MailType;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 @Data
-@Document
-public class Mail {
+@Entity
+public class  Mail {
     @Id
-    private String id;
+    private Long id;
     private String title;
     private String message;
     private LocalDate dateCreated = LocalDate.now();
+    @Enumerated
     private MailType mailType;
 }
