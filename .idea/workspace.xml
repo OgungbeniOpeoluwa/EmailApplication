@@ -5,25 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9468180b-2c99-4ee6-abb6-a805dca16398" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/request/LogOutRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/response/RegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/LogOutException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/EmailApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/EmailApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/Mail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/repository/EmailAppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/repository/EmailAppRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/repository/MailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/repository/MailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/request/SendEmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/request/SendEmailRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/EmailAppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/EmailAppService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/EmailAppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/EmailAppServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/util/Verification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/util/Verification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/UserServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +74,7 @@
       <recent name="org.example.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceImplTest.testThatWhenAUserRegisterWithAWrongPasswordFormatItThrowsException">
+  <component name="RunManager" selected="JUnit.UserServiceImplTest">
     <configuration name="UserServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MavenOOP" />
       <extension name="coverage">
@@ -99,6 +86,22 @@
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.UserServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplTest.testThatARegisterUserCantRegisterTwice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MavenOOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.service.UserServiceImplTest" />
+      <option name="METHOD_NAME" value="testThatARegisterUserCantRegisterTwice" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,29 +154,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceImplTest.testThatWhenUserLoginWithAWrongPasswordItThrowsAnException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MavenOOP" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.service" />
-      <option name="MAIN_CLASS_NAME" value="org.example.service.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="testThatWhenUserLoginWithAWrongPasswordItThrowsAnException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceImplTest.testThatWhenAUserRegisterWithAWrongPasswordFormatItThrowsException" />
         <item itemvalue="JUnit.UserServiceImplTest" />
         <item itemvalue="JUnit.UserServiceImplTest.testThatWhenRegisterUserSendEmailToUnRegisterUserThrowsAnException" />
+        <item itemvalue="JUnit.UserServiceImplTest.testThatARegisterUserCantRegisterTwice" />
+        <item itemvalue="JUnit.UserServiceImplTest.testThatWhenAUserRegisterWithAWrongPasswordFormatItThrowsException" />
         <item itemvalue="JUnit.UserServiceImplTest.testThatWhenAUserRegisterRespositoryCountIncreaseBy1" />
-        <item itemvalue="JUnit.UserServiceImplTest.testThatWhenUserLoginWithAWrongPasswordItThrowsAnException" />
       </list>
     </recent_temporary>
   </component>
@@ -192,26 +179,14 @@
       <workItem from="1705003327002" duration="12406000" />
       <workItem from="1705079825052" duration="1774000" />
       <workItem from="1705116857854" duration="6305000" />
-      <workItem from="1705284353091" duration="8481000" />
+      <workItem from="1705284353091" duration="13135000" />
+      <workItem from="1705409787320" duration="1158000" />
+      <workItem from="1705585936608" duration="1187000" />
+      <workItem from="1705604859485" duration="2759000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/org/example/service/UserServiceImplTest.java</url>
-          <line>46</line>
-          <properties class="org.example.service.UserServiceImplTest" method="testThatWhenAUserRegisterWithAWrongPasswordFormatItThrowsException">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

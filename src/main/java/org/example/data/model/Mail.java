@@ -1,8 +1,6 @@
 package org.example.data.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.example.util.MailType;
 
@@ -11,6 +9,7 @@ import java.time.LocalDate;
 @Entity
 public class  Mail {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String message;

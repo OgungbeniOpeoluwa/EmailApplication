@@ -10,7 +10,7 @@ public interface EmailAppService {
 
     EmailApp findUserDomainName(String domainName);
 
-    Long login(String domainName);
+    void login(String domainName);
 
     void sendEmail(SendEmailRequest sendEmailRequest);
 }

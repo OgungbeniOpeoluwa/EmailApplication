@@ -50,48 +50,25 @@ class UserServiceImplTest {
     }
     @Test
     public void testThatARegisterUserCantRegisterTwice(){
-        RegisterRequest request = new RegisterRequest();
-        request.setName("opeoluwa");
-        request.setAge("18");
-        request.setPhoneNumber("08097568990");
-        request.setPassword("opeoluwa123");
-        request.setDomainName("opeoluaagnes");
         userService.register(request);
         assertThrows(DomainNameException.class,()->userService.register(request));
     }
     @Test
     public void testThatWhenUserRegisterWithInvalidNumberItThrowsException(){
-        RegisterRequest request = new RegisterRequest();
-        request.setName("opeoluwa");
-        request.setAge("18");
         request.setPhoneNumber("12344");
-        request.setPassword("opeoluwa123");
-        request.setDomainName("opeoluaagnes");
         assertThrows(InvalidDetailsFormat.class,()->userService.register(request));
     }
 
     @Test
     public void testThatWhenUserLoginWithAWrongPasswordItThrowsAnException(){
-        RegisterRequest request = new RegisterRequest();
-        request.setName("opeoluwa");
-        request.setAge("18");
-        request.setPhoneNumber("07066221008");
-        request.setPassword("opeoluwa123");
-        request.setDomainName("delighted");
         userService.register(request);
         LoginRequest loginRequest = new LoginRequest("delighted@vision.com","opeoluwa23");
         assertThrows(InvalidLoginDetails.class,()->userService.login(loginRequest));
     }
     @Test
     public void testThatWhenRegisterUserSendEmailToUnRegisterUserThrowsAnException(){
-        RegisterRequest request = new RegisterRequest();
-        request.setName("opeoluwa");
-        request.setAge("18");
-        request.setPhoneNumber("07066221008");
-        request.setPassword("opeoluwa123");
-        request.setDomainName("delighted");
         userService.register(request);
-        LoginRequest loginRequest = new LoginRequest("delighted@vision.com","opeoluwa123");
+        LoginRequest loginRequest = new LoginRequest("delighted@vision.com","1234");
         userService.login(loginRequest);
         SendEmailRequest sendEmailRequest = new SendEmailRequest("delighted@vision.com",
                 "I will like to apply for the secretary job offer",
@@ -103,7 +80,7 @@ class UserServiceImplTest {
     @Test
     public void testThatWhenAUserRecieveAEmailAndDeleteTheMailInInbox (){
         userService.register(request);
-        LoginRequest loginRequest = new LoginRequest("delighted@vision.com","opeoluwa123");
+        LoginRequest loginRequest = new LoginRequest("delighted@vision.com","1234");
         userService.login(loginRequest);
         SendEmailRequest sendEmailRequest = new SendEmailRequest("delighted@vision.com",
                 "I will like to apply for the secretary job offer",

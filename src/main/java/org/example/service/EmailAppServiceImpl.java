@@ -29,10 +29,10 @@ public class EmailAppServiceImpl implements EmailAppService{
 
     @Override
     public String createAccount(String domainName, Long id) {
-        if(domainNameExist(domainName))throw new DomainNameException("Domain Name Exist");
         EmailApp emailApp = new EmailApp();
-        emailApp.setUserId(id);
         String response=domainName+"@vision.com";
+        if(domainNameExist(response))throw new DomainNameException("Domain Name Exist");
+        emailApp.setUserId(id);
         emailApp.setDomainName(response);
         emailAppRepository.save(emailApp);
         return response;
@@ -46,13 +46,12 @@ public class EmailAppServiceImpl implements EmailAppService{
     }
 
     @Override
-    public Long login(String domainName) {
+    public void login(String domainName) {
         EmailApp emailApp =findUserDomainName(domainName);
         if(emailApp == null)throw new InvalidDetailsFormat("Invalid login Details");
         if(emailApp.isLogIn())throw new InvalidLoginDetails("You are already in");
         emailApp.setLogIn(true);
         emailAppRepository.save(emailApp);
-        return emailApp.getUserId();
     }
 
     @Override

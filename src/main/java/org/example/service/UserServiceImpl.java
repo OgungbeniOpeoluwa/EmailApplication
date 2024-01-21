@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.data.model.EmailApp;
 import org.example.data.model.User;
 import org.example.data.repository.UserRepository;
 import org.example.dto.request.LogOutRequest;
@@ -33,13 +34,15 @@ public class UserServiceImpl implements UserService {
         user.setPhoneNumber(request.getPhoneNumber());
         user.setPassword(request.getPassword());
         userRepository.save(user);
-        return emailAppService.createAccount(request.getDomainName(),user.getId());
+        String domainName = emailAppService.createAccount(request.getDomainName(),user.getId());
+        return domainName;
     }
 
     @Override
     public void login(LoginRequest loginRequest) {
-        Long userId = emailAppService.login(loginRequest.getDomainName());
-        verifyPassword(userId, loginRequest);
+        EmailApp emailApp = emailAppService.findUserDomainName(loginRequest.getDomainName());
+        verifyPassword(emailApp.getUserId(),loginRequest);
+        emailAppService.login(loginRequest.getDomainName());
 
     }
 
@@ -56,9 +59,7 @@ public class UserServiceImpl implements UserService {
     private void verifyPassword(Long id, LoginRequest loginRequest){
         Optional<User> user = userRepository.findById(id);
         if(user.isEmpty()) throw new UserExistException("User doesn't exist");
-        if(!user.get().getPassword().equals(loginRequest.getPassword())) {
-            emailAppService.logOut(loginRequest.getDomainName());
-            throw new InvalidLoginDetails("Invalid login details");
-        }
+        if(!user.get().getPassword().equals(loginRequest.getPassword()))throw new InvalidLoginDetails("Invalid login details");
+
     }
 }
